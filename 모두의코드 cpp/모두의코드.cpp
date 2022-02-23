@@ -3,28 +3,18 @@ using namespace std;
 /*
 모두의코드# 1 
 참조자(reference)
+배열들의 레퍼런스o
+래퍼런스 배열X
 */
 
-int change(int*);
 
 int main() {
-	int number = 5;
+	int arr[3] = { 1, 2, 3 };
+	int(&ref)[3] = arr;
 
-	cout << number << endl;
-	change(&number);
-	cout << number << endl;
-	/*참조자*/
-	int a = 3;
-	int& another_a = a;
+	ref[0] = 2;
+	ref[1] = 3;
+	ref[2] = 1;
 
-	another_a = 5;
-	std::cout << "a : " << a << std::endl;
-	std::cout << "another_a : " << another_a << std::endl;
-	/*참조자*/
-}
-
-int change(int* p) {
-	*p = 3;
-
-	return 0;
+	std::cout << arr[0] << arr[1] << arr[2] << std::endl;
 }
