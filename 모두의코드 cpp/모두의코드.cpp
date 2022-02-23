@@ -1,8 +1,8 @@
-#include <iostream>
+ï»¿#include <iostream>
 using namespace std;
 /*
-¸ğµÎÀÇÄÚµå# 1 
-ÂüÁ¶ÀÚ(reference)
+ëª¨ë‘ì˜ì½”ë“œ# 1 
+ì°¸ì¡°ì(reference)
 */
 
 int change(int*);
@@ -13,6 +13,14 @@ int main() {
 	cout << number << endl;
 	change(&number);
 	cout << number << endl;
+	/*ì°¸ì¡°ì*/
+	int a = 3;
+	int& another_a = a;
+
+	another_a = 5;
+	std::cout << "a : " << a << std::endl;
+	std::cout << "another_a : " << another_a << std::endl;
+	/*ì°¸ì¡°ì*/
 }
 
 int change(int* p) {
