@@ -7,21 +7,7 @@ Dangling reference
 외부변수 참조자
 
 -----
-위와 같이 인자로 받은 레퍼런스를 그대로 리턴 하고 있습니다.
-
-function(b) 를 실행한 시점에서 a 는 main 의 b 를 참조하고 있게 됩니다. 
-따라서 function 이 리턴한 참조자는 아직 살아있는 변수인 b 를 계속 참조 합니다.
-
-int c = function(b);
-결국 위 문장은 그냥 c 에 현재의 b 의 값인 5 를 대입하는 것과 동일한 문장이 됩니다.
+참조자는 메모리상에 존재하지 않을 수 있지만
+함수의 매개변수를 참조자를 통해서 받는다면 
+함수내의 주소값을 저장하는 메모리 공간이 확보되어 받는다
 */
-int& function(int& a) {
-	a = 5;
-	return a;
-}
-
-int main() {
-	int b = 2;
-	int c = function(b);
-	return 0;
-}
