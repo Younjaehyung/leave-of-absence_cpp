@@ -3,21 +3,21 @@ using namespace std;
 /*
 모두의코드# 1 
 참조자(reference)
-배열들의 레퍼런스o
-래퍼런스 배열X
+Dangling reference
+지역변수 참조자
 
+-----
+함수 리턴값의 유형이 레퍼런스이지만 리턴값은 지역내에서만 존재 하기때문에
+리턴할시 int b= function(); 는 a를 참조 못하게 된다
+허나 비쥬얼스튜디오에서는 컴파일러가 알아서 하게 됨.
 */
-
+int& function() {
+	int a = 2;
+	return a;
+}
 
 int main() {
-	int arr[3] = { 1, 2, 3 };
-	int(&ref)[3] = arr;
-	/*
-    int &ref[3]={1,2,3}; >>래퍼런스 배열 x
-	*/
-	ref[0] = 2;
-	ref[1] = 3;
-	ref[2] = 1;
-
-	std::cout << arr[0] << arr[1] << arr[2] << std::endl;
+	int b = function();
+	b = 3;
+	return 0;
 }
